@@ -49,4 +49,5 @@ end
 
 magic_shell_environment 'MULE_HOME' do
   value "#{node['mule']['install_dir']}/#{ZIP_FILE.gsub('.zip', '')}"
+  action :create	
 end
