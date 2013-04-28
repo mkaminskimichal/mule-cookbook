@@ -50,3 +50,10 @@ end
 magic_shell_environment 'MULE_HOME' do
   value "#{node['mule']['install_dir']}/#{ZIP_FILE.gsub('.zip', '')}"
 end
+
+execute "MULE_HOME"  do
+  command "/etc/profile.d/MULE_HOME.sh"
+  action :run
+end
+
+
