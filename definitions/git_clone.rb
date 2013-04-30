@@ -20,7 +20,7 @@ end
 execute "git_up" do
   command "git pull"
   action :run
-  cwd {project_home}
+  cwd #{project_home}
   not_if #{File.exist?(project_home)}
 end
 
