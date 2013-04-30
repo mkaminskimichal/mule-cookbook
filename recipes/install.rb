@@ -52,7 +52,7 @@ magic_shell_environment 'MULE_HOME' do
 end
 
 execute "MULE_HOME"  do
-  command "/etc/profile.d/MULE_HOME.sh"
+  command "/bin/bash /etc/profile.d/MULE_HOME.sh"
   action :run
 end
 
