@@ -9,7 +9,8 @@
 
 git_clone "clone repo" do
    repository "#{node['project']['repository']}"
-   directory "#{node['workspace']['directory']}"
+   directory  "#{node['workspace']['directory']}"
+   project    "#{node['project']['name']}"	
 end
 
 mvn_install "project install" do
