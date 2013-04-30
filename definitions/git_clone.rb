@@ -8,7 +8,7 @@ directory "#{params[:directory]}" do
   action :create
 end
 
-project_home = params[:directory] + "/" + params[:project]
+project_home = #{params[:directory] + "/" + params[:project]}
 
 execute "git_clone" do
   command "git clone #{params[:repository]}"
