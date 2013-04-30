@@ -14,14 +14,14 @@ execute "git_clone" do
   command "git clone #{params[:repository]}"
   action :run
   cwd "#{params[:directory]}"
-  not_if {File.exist?(project_home)}
+  not_if #{File.exist?(project_home)}
 end
 
 execute "git_up" do
   command "git pull"
   action :run
   cwd {project_home}
-  not_if {File.exist?(project_home)}
+  not_if #{File.exist?(project_home)}
 end
 
 
