@@ -47,22 +47,21 @@ execute "run_mule"  do
   action :nothing
 end
 
-mule_home = #{node['mule']['install_dir']} + "/" + #{ZIP_FILE.gsub('.zip', '')
+mule_home = node['mule']['install_dir'] + "/" + ZIP_FILE.gsub('.zip', '')
 
 ruby_block  "set-env-mule-home" do
    block do
        ENV["MULE_HOME"] = mule_home
     end
-        not_if { ENV["MULE_HOME"] == mule_home }
+       not_if { ENV["MULE_HOME"] == mule_home }
 end
 
 file "/etc/profile.d/MULE_HOME.sh" do
    content <<-EOS
-      export MULE_HOME=#{node['mule']['install_dir']}/#{ZIP_FILE.gsub('.zip', '')
+      export MULE_HOME=#{node['mule']['install_dir']}/#{ZIP_FILE.gsub('.zip', '')}
    EOS
    mode 0755
 end
 
-end
 
 
